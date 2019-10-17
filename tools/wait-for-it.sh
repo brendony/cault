@@ -112,8 +112,8 @@ fi
 
 # check to see if timeout is from busybox
 TIMEOUT_PATH=$(realpath $(which timeout))
-BUSYBOX="busybox"
-if test "${TIMEOUT_PATH#*$BUSYBOX}" != "$BUSYBOX"; then
+BUSYBOX=$(which busybox)
+if test "$TIMEOUT_PATH" != "$BUSYBOX"; then
     ISBUSY=1
     BUSYTIMEFLAG="-t"
 else
